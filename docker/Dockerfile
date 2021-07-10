@@ -27,4 +27,4 @@ RUN docker-php-ext-install sockets && \
     php composer.phar install && \
     rm -r /var/cache/apk && \
     rm -r /usr/share/man
-ENTRYPOINT ["entrypoint.sh"]
+CMD ["entrypoint.sh"]
