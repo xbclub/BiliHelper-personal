@@ -261,7 +261,7 @@ class Notice
     private static function sctSend(array $info)
     {
         Log::info('使用ServerChan(Turbo)推送消息');
-        $url = 'https://sctapi.ftqq.com/' . getConf('sctkey', 'notify.sct') . '.send';
+        $url = 'https://sctapi.42cloud.cn/' . getConf('sctkey', 'notify.sct') . '.send';
         $payload = [
             'text' => $info['title'],
             'desp' => $info['content'],

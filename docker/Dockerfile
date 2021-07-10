@@ -1,8 +1,5 @@
 FROM php:alpine
 
-#MAINTAINER zsnmwy <szlszl35622@gmail.com>
-LABEL AUTHOR = "Lkeme <Useri@live.cn>"
-
 ENV USER_NAME='' \
     USER_PASSWORD='' \
     REPO_URL='https://github.com/' \
@@ -19,21 +16,10 @@ ENV USER_NAME='' \
     Info="${Green}[信息]${Font}" \
     OK="${Green}[OK]${Font}" \
     Error="${Red}[错误]${Font}"
-
 WORKDIR /app
-
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
-#RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
-RUN docker-php-ext-install sockets
-
-#RUN if [ "${CN}" = true ]; then export REPO_URL="https://github.com.cnpmjs.org"; fi
-
-#RUN set -ex \
-#    && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-#    && echo "Asia/Shanghai" > /etc/timezone \
-
-RUN apk add --no-cache git && \
-    git clone ${REPO_URL}/lkeme/BiliHelper-personal.git --depth=1 /app && \
+RUN docker-php-ext-install sockets && \
+    apk add --no-cache git && \
+    git clone ${REPO_URL}/xbclub/BiliHelper-personal.git --depth=1 /app && \
     cp -f /app/docker/entrypoint.sh /usr/local/bin/entrypoint.sh && \
     chmod 777 /usr/local/bin/entrypoint.sh && \
     php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');" && \
@@ -41,5 +27,4 @@ RUN apk add --no-cache git && \
     php composer.phar install && \
     rm -r /var/cache/apk && \
     rm -r /usr/share/man
-
 ENTRYPOINT ["entrypoint.sh"]

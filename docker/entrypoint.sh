@@ -5,19 +5,19 @@ set -e
 case ${MIRRORS} in
 "0")
   echo -e "\n ======== \n ${Info} ${GreenBG} 切换源-github.com ${Font} \n ======== \n"
-  git remote set-url origin https://github.com/lkeme/BiliHelper-personal.git
+  git remote set-url origin https://github.com/xbclub/BiliHelper-personal.git
   ;;
 "1")
   echo -e "\n ======== \n ${Info} ${GreenBG} 切换源-ghproxy.com ${Font} \n ======== \n"
-  git remote set-url origin https://ghproxy.com/https://github.com/lkeme/BiliHelper-personal.git
+  git remote set-url origin https://ghproxy.com/https://github.com/xbclub/BiliHelper-personal.git
   ;;
 "2")
   echo -e "\n ======== \n ${Info} ${GreenBG} 切换源-github.com.cnpmjs.org ${Font} \n ======== \n"
-  git remote set-url origin https://github.com.cnpmjs.org/lkeme/BiliHelper-personal.git
+  git remote set-url origin https://github.com.cnpmjs.org/xbclub/BiliHelper-personal.git
   ;;
 *)
   echo -e "\n ======== \n ${Info} ${GreenBG} 切换源-github.com ${Font} \n ======== \n"
-  git remote set-url origin https://github.com/lkeme/BiliHelper-personal.git
+  git remote set-url origin https://github.com/xbclub/BiliHelper-personal.git
   ;;
 esac
 
